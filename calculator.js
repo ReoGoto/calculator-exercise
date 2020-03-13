@@ -4,7 +4,7 @@
 
 
 let HOST = location.origin.replace(/^http/, 'ws')
-let ws = new WebSocket(HOST);
+let connection = new WebSocket(HOST);
 
 const calculationInput = document.getElementById( 'calculationInput' )
 const calculateButton = document.getElementById( 'calculateButton' )
