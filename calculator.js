@@ -1,6 +1,10 @@
 
 //const connection = new WebSocket('ws://localhost:8080');
-const connection = new WebSocket('wss://calculator-exercise.herokuapp.com');
+//const connection = new WebSocket('wss://calculator-exercise.herokuapp.com');
+
+
+let HOST = location.origin.replace(/^http/, 'ws')
+let ws = new WebSocket(HOST);
 
 const calculationInput = document.getElementById( 'calculationInput' )
 const calculateButton = document.getElementById( 'calculateButton' )
