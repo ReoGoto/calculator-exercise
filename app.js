@@ -80,19 +80,34 @@ const server = express()
 
 const wss = new Server({ server });
 
-const clients = new Set();
-
 wss.on('connection', (wss) => {
   console.log('Client connected');
   //ws.on('close', () => console.log('Client disconnected'));
 });
 
-wss.on('message', function(message) {
-    message = message.slice(0, 50); // max message length will be 50
-    for(let client of clients) {
-      client.send(message);
-    }
+var connections = [];
+ 
+wss.on('connection', function (ws) {
+    
+    connections.push(ws);
+
+    ws.on('close', function () {
+        connections = connections.filter(function (conn, i) {
+            return (conn === ws) ? false : true;
+        });
+    });
+
+    ws.on('message', function (message) {
+        console.log('message:', message);
+        broadcast(JSON.stringify(message));
+    });
 });
+ 
+function broadcast(message) {
+    connections.forEach(function (con, i) {
+        con.send(message);
+    });
+};
 
 
 
