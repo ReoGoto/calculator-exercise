@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculator Exercise</title>
+	<style>
+		body > div { width: 100%; margin: auto; text-align: center; }
+		
+		body {
+			background-color: black;
+			color: white;
+			text-align: center;
+		}
+
+		#form {
+			position: fixed; 
+			bottom: 10px;
+		}
+
+		#calculateButton {
+			background-color: rgb(76, 134, 209);
+			color: white;
+		}
+
+		#chat  {
+			background-color: blue;
+			width: calc(100% / 3);
+			margin-bottom: 80px;
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+		<h1>Calculator Exercise</h1>
+
+	    <div id="chat"></div>
+
+        <div id="form" >
+			<input placeholder="calculation" id="calculationInput" >
+        	<button id="calculateButton">Send</button>
+		</div>
+
+<script src="./calculator.js"></script>
+</body> 	
+</html>
