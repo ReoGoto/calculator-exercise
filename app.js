@@ -80,13 +80,25 @@ const server = express()
 
 const wss = new Server({ server });
 
-wss.on('connection', (ws) => {
+const clients = new Set();
+
+wss.on('connection', (wss) => {
   console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
+  //ws.on('close', () => console.log('Client disconnected'));
 });
 
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+wss.on('message', function(message) {
+    message = message.slice(0, 50); // max message length will be 50
+    for(let client of clients) {
+      client.send(message);
+    }
+});
+
+
+
+
+// setInterval(() => {
+//   wss.clients.forEach((client) => {
+//     client.send(new Date().toTimeString());
+//   });
+// }, 1000);
