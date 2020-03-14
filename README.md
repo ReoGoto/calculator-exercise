@@ -1,6 +1,9 @@
 # calculator-exercise
 
-websocket calculator app: 
+## websocket calculator app: 
 https://calculator-exercise.herokuapp.com/
 
-## node.js, websocket, express
+### Simple web app (using node js) which logs calculations as they happen and shares those calculations with everyone connected to the website.
+  
+### Technology  
+  node.js, websocket, express
