@@ -1,4 +1,6 @@
 # calculator-exercise
 
-websocket calculator app
+websocket calculator app: 
 https://calculator-exercise.herokuapp.com/
+
+## node.js, websocket, express
